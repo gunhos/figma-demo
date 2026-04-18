@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 import 'auth_controller.dart';
 
 class SignInScreen extends ConsumerWidget {
@@ -138,7 +139,10 @@ class SignInScreen extends ConsumerWidget {
     AuthController controller,
   ) async {
     try {
-      await controller.signInWithGoogle();
+      final result = await controller.signInWithGoogle();
+      if (result != null && context.mounted) {
+        context.go('/home');
+      }
     } catch (e) {
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(

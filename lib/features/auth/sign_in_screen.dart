@@ -141,7 +141,7 @@ class SignInScreen extends ConsumerWidget {
     try {
       final result = await controller.signInWithGoogle();
       if (result != null && context.mounted) {
-        context.go('/home');
+        context.go('/profile-details');
       }
     } catch (e) {
       if (context.mounted) {

@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'features/auth/sign_in_screen.dart';
 
 final _router = GoRouter(
   routes: [
-    GoRoute(
-      path: '/',
-      builder: (context, state) => const _PlaceholderScreen(),
-    ),
+    GoRoute(path: '/', builder: (context, _) => const SignInScreen()),
   ],
 );
 
@@ -16,19 +14,12 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: 'App',
+      title: 'Dating App',
       routerConfig: _router,
-    );
-  }
-}
-
-class _PlaceholderScreen extends StatelessWidget {
-  const _PlaceholderScreen();
-
-  @override
-  Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(child: Text('Ready for design')),
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFFE94057)),
+        useMaterial3: true,
+      ),
     );
   }
 }

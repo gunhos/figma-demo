@@ -109,7 +109,7 @@ class _ProfileDetailsScreenState extends State<ProfileDetailsScreen> {
               SizedBox(
                 height: 56,
                 child: ElevatedButton(
-                  onPressed: _canContinue ? () => context.go('/home') : null,
+                  onPressed: _canContinue ? () => context.go('/i-am') : null,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: _brandRed,
                     disabledBackgroundColor: _brandRed.withValues(alpha: 0.4),
